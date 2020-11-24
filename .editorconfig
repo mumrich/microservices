@@ -1,0 +1,19 @@
+[*]
+charset = utf-8
+end_of_line = crlf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+max_line_length = 180
+trim_trailing_whitespace = true
+
+[*.{yml,yaml}]
+end_of_line = lf
+
+[*.{sh,tst}]
+end_of_line = lf
+
+[*.{cs,cshtml}]
+dotnet_separate_import_directive_groups = true
+dotnet_sort_system_directives_first = true
+csharp_space_around_declaration_statements = ignore
