@@ -5,13 +5,13 @@ using DotNetify;
 
 namespace frontend_vue
 {
-  public class HelloWorld : BaseVM
+  public class HelloWorldVm : BaseVM
   {
     private readonly Timer timer;
     public string Greetings => "Hello World!";
     public DateTime ServerTime => DateTime.Now;
 
-    public HelloWorld()
+    public HelloWorldVm()
     {
       timer = new Timer(_ =>
       {
