@@ -6,7 +6,9 @@
 #
 name: microservices
 services:
-- name: frontend
-  project: frontend/frontend.csproj
-- name: backend
-  project: backend/backend.csproj
+  - name: frontend
+    project: frontend/frontend.csproj
+  - name: backend
+    project: backend/backend.csproj
+  - name: backend-vue
+    project: frontend-vue/frontend-vue.csproj
