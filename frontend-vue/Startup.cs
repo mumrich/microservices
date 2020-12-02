@@ -1,3 +1,5 @@
+using DotNetify;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices;
@@ -21,6 +23,9 @@ namespace frontend_vue
       // NOTE: PRODUCTION Ensure this is the same path that is specified in your webpack output
       services.AddSpaStaticFiles(opt => opt.RootPath = $"{CLIENT_APP_NAME}/dist");
       services.AddControllers();
+      services.AddMemoryCache();
+      services.AddSignalR();
+      services.AddDotNetify();
     }
 
     /// <summary>
@@ -38,9 +43,11 @@ namespace frontend_vue
       // PRODUCTION uses webpack static files
       app.UseSpaStaticFiles();
       app.UseRouting();
+      app.UseWebSockets();
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
+        endpoints.MapHub<DotNetifyHub>("/dotnetify");
         endpoints.MapToVueCliProxy(
           "{*path}",
           new SpaOptions { SourcePath = CLIENT_APP_NAME },
